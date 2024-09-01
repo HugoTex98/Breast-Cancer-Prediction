@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is part of the Master’s program in Biomedical Technologies, under the course "Information Visualization" for the academic year 2022-2023. The goal of this project is to develop a Python-based program that processes, visualizes, and classifies data from a dataset containing indicators of breast cancer patients. The project involves exploring various machine learning models to predict (diagnose) whether a patient is likely to have breast cancer.
+The goal of this project is to develop a Python-based program that processes, visualizes, and classifies data from a dataset containing indicators of breast cancer patients. The project involves exploring various machine learning models to predict (diagnose) whether a patient is likely to have breast cancer.
 
 ## Objectives
 
@@ -14,7 +14,7 @@ This project is part of the Master’s program in Biomedical Technologies, under
 
 The dataset used in this project is named `bcdr_f01_features.csv`, which contains 44 variables: 16 integer fields, 27 real (float) fields, and 1 string field. The dataset provides indicators collected from breast cancer patients.
 
-## Features
+## Program
 
 The program includes the following functionalities:
 
@@ -37,7 +37,6 @@ The program includes the following functionalities:
 - **/data**: (optional) Directory to store datasets.
 - **/results**: (optional) Directory to save results such as visualizations and model outputs.
 - **Dockerfile**: Instructions to containerize the application.
-- **docker-compose.yml**: (optional) Configuration to run the application with Docker Compose.
 - **requirements.txt**: List of Python dependencies.
 - **README.md**: This file.
 
