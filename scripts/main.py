@@ -1,9 +1,3 @@
-# ToDo
-# Creation of a new branch to do some testing on updates
-# Store model's params in results as well
-# Use SMOTE for Data Augmentation
-# Use Optuna instead of Random Search
-
 from pathlib import Path 
 from datetime import datetime
 import sys
