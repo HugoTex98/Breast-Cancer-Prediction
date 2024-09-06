@@ -102,6 +102,7 @@ The program implements a command-line interface (CLI) with the following functio
 The code is written in Python and requires the following libraries:
 
 - Pandas
+- Requests
 - NumPy
 - Scikit-learn
 - Matplotlib
@@ -132,10 +133,10 @@ Once the image is built, you can run the Docker container using the following co
 ```bash
 docker run -it --rm breast-cancer-prediction
 ```
- - -it: Runs the container in interactive mode, allowing you to interact with the terminal inside the container.
- - --rm: Automatically removes the container once it stops running, keeping your environment clean.
- - breast-cancer-prediction: The name of the Docker image you built.
 
+ - **`-it`**: Runs the container in interactive mode, allowing you to interact with the terminal inside the container.
+ - **`--rm`**: Automatically removes the container once it stops running, keeping your environment clean.
+ - **`breast-cancer-prediction`**: The name of the Docker image you built.
 
 Since the project is not a web application and does not expose any ports, the output from the script will be directly visible in the terminal where the container runs. If the script generates output files, they will be saved in the container's file system.
 
