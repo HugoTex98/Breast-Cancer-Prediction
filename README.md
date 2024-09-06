@@ -89,7 +89,7 @@ The program implements a command-line interface (CLI) with the following functio
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/Breast-Cancer-Prediction.git
+    git clone https://github.com/HugoTex98/Breast-Cancer-Prediction.git
     cd Breast-Cancer-Prediction
     ```
 2. **Create a virtual environment and activate it:**
