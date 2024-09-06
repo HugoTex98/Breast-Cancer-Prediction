@@ -1,6 +1,6 @@
 # Breast Cancer Prediction Project
 
-## Overview
+## Project Overview
 
 The goal of this project is to develop a Python-based program that processes, visualizes, and classifies data from a dataset containing indicators of breast cancer patients. The project involves exploring various Machine Learning models to predict (diagnose) whether a patient is likely to have breast cancer.
 
@@ -14,67 +14,67 @@ The goal of this project is to develop a Python-based program that processes, vi
 
 The dataset used in this project is named `bcdr_f01_features.csv`, which contains 44 variables: 16 integer fields, 27 real (float) fields, and 1 string field. The dataset provides indicators collected from breast cancer patients. Here's a brief description of each variable:
 
- - patient_id: Identifier for each patient.
- - study_id: Identifier for each study associated with a patient.
- - series: Series number within the study.
- - lesion_id: Identifier for each lesion within a study.
- - segmentation_id: Identifier for each segmentation of a lesion.
- - image_view: The view in which the image was taken (e.g., craniocaudal, mediolateral).
- - mammography_type: Type of mammography used (e.g., screening or diagnostic).
- - mammography_nodule: Indicates the presence of a nodule (binary).
- - mammography_calcification: Indicates the presence of calcification (binary).
- - mammography_microcalcification: Indicates the presence of microcalcifications (binary).
- - mammography_axillary_adenopathy: Indicates the presence of axillary adenopathy (binary).
- - mammography_architectural_distortion: Indicates the presence of architectural distortion (binary).
- - mammography_stroma_distortion: Indicates the presence of stromal distortion (binary).
- - age: Age of the patient.
- - density: Breast density category.
- - i_mean: Mean intensity value of the image.
- - i_std_dev: Standard deviation of the image intensity.
- - i_maximum: Maximum intensity value in the image.
- - i_minimum: Minimum intensity value in the image.
- - i_kurtosis: Kurtosis of the image intensity distribution.
- - i_skewness: Skewness of the image intensity distribution.
- - s_area: Area of the segmented region.
- - s_perimeter: Perimeter of the segmented region.
- - s_x_center_mass: X-coordinate of the center of mass of the segmented region.
- - s_y_center_mass: Y-coordinate of the center of mass of the segmented region.
- - s_circularity: Circularity of the segmented region.
- - s_elongation: Elongation of the segmented region.
- - s_form: Form factor of the segmented region.
- - s_solidity: Solidity of the segmented region.
- - s_extent: Extent (ratio of area to bounding box area) of the segmented region.
- - t_energ: Texture energy of the segmented region.
- - t_contr: Texture contrast of the segmented region.
- - t_corr: Texture correlation of the segmented region.
- - t_sosvh: Sum of squares variance of the texture.
- - t_homo: Texture homogeneity of the segmented region.
- - t_savgh: Sum average of the texture.
- - t_svarh: Sum variance of the texture.
- - t_senth: Sum entropy of the texture.
- - t_entro: Entropy of the texture.
- - t_dvarh: Difference variance of the texture.
- - t_denth: Difference entropy of the texture.
- - t_inf1h: First information measure of correlation.
- - t_inf2h: Second information measure of correlation.
- - classification: Classification of the lesion as either "Malign" (malignant) or "Benign".
+ - **`patient_id`**: Identifier for each patient.
+ - **`study_id`**: Identifier for each study associated with a patient.
+ - **`series`**: Series number within the study.
+ - **`lesion_id`**: Identifier for each lesion within a study.
+ - **`segmentation_id`**: Identifier for each segmentation of a lesion.
+ - **`image_view`**: The view in which the image was taken (e.g., craniocaudal, mediolateral).
+ - **`mammography_type`**: Type of mammography used (e.g., screening or diagnostic).
+ - **`mammography_nodule`**: Indicates the presence of a nodule (binary).
+ - **`mammography_calcification`**: Indicates the presence of calcification (binary).
+ - **`mammography_microcalcification`**: Indicates the presence of microcalcifications (binary).
+ - **`mammography_axillary_adenopathy`**: Indicates the presence of axillary adenopathy (binary).
+ - **`mammography_architectural_distortion`**: Indicates the presence of architectural distortion (binary).
+ - **`mammography_stroma_distortion`**: Indicates the presence of stromal distortion (binary).
+ - **`age`**: Age of the patient.
+ - **`density`**: Breast density category.
+ - **`i_mean`**: Mean intensity value of the image.
+ - **`i_std_dev`**: Standard deviation of the image intensity.
+ - **`i_maximum`**: Maximum intensity value in the image.
+ - **`i_minimum`**: Minimum intensity value in the image.
+ - **`i_kurtosis`**: Kurtosis of the image intensity distribution.
+ - **`i_skewness`**: Skewness of the image intensity distribution.
+ - **`s_area`**: Area of the segmented region.
+ - **`s_perimeter`**: Perimeter of the segmented region.
+ - **`s_x_center_mass`**: X-coordinate of the center of mass of the segmented region.
+ - **`s_y_center_mass`**: Y-coordinate of the center of mass of the segmented region.
+ - **`s_circularity`**: Circularity of the segmented region.
+ - **`s_elongation`**: Elongation of the segmented region.
+ - **`s_form`**: Form factor of the segmented region.
+ - **`s_solidity`**: Solidity of the segmented region.
+ - **`s_extent`**: Extent (ratio of area to bounding box area) of the segmented region.
+ - **`t_energ`**: Texture energy of the segmented region.
+ - **`t_contr`**: Texture contrast of the segmented region.
+ - **`t_corr`**: Texture correlation of the segmented region.
+ - **`t_sosvh`**: Sum of squares variance of the texture.
+ - **`t_homo`**: Texture homogeneity of the segmented region.
+ - **`t_savgh`**: Sum average of the texture.
+ - **`t_svarh`**: Sum variance of the texture.
+ - **`t_senth`**: Sum entropy of the texture.
+ - **`t_entro`**: Entropy of the texture.
+ - **`t_dvarh`**: Difference variance of the texture.
+ - **`t_denth`**: Difference entropy of the texture.
+ - **`t_inf1h`**: First information measure of correlation.
+ - **`t_inf2h`**: Second information measure of correlation.
+ - **`classification`**: Classification of the lesion as either "Malign" (malignant) or "Benign".
 
 ## Program
 
-The program includes the following functionalities:
+The program implements a command-line interface (CLI) with the following functionalities:
 
-1. **LOAD**: Load a specified dataset file and display summarized information.
-2. **LOADF**: Load the provided `bcdr_f01_features.csv` file and display summarized information.
-3. **CLEAR**: Clear the loaded data from memory.
-4. **QUIT**: Exit the program.
-5. **DESCRIBE**: Provide a statistical summary of the numerical data and count benign and malignant cases.
-6. **SORT**: Sort the data by patient ID, handle missing values, and encode the classification labels.
-7. **CORRELATION**: Remove irrelevant features and visualize correlations using a heatmap.
-8. **SPLITSCALE**: Split the dataset into training and test sets and scale features.
-9. **SVM**: Train and test a Support Vector Machine (SVM) classifier (already fine-tuned with Random Search).
-10. **RANDOMFOREST**: Train and test a Random Forest classifier (already fine-tuned with Random Search).
-11. **ANN**: Train and test an Artificial Neural Network (ANN) classifier (already fine-tuned with Random Search).
-12. **METRICS**: Evaluate and display classification performance metrics (Confusion Matrix, Accuracy, Precision, Recall) for all the models developed.
+1. **`LOAD`**: Load a specified dataset file and display summarized information.
+2. **`LOADF`**: Load the provided `bcdr_f01_features.csv` file and display summarized information.
+3. **`CLEAR`**: Clear the loaded data from memory.
+4. **`QUIT`**: Exit the program.
+5. **`DESCRIBE`**: Provide a statistical summary of the numerical data and count benign and malignant cases.
+6. **`SORT`**: Sort the data by patient ID, handle missing values, and encode the classification labels.
+7. **`CORRELATION`**: Remove irrelevant features and visualize correlations using a heatmap.
+8. **`SPLITSCALE`**: Split the dataset into training and test sets and scale features.
+9. **`SVM`**: Train and test a Support Vector Machine (SVM) classifier (already fine-tuned with Random Search).
+10. **`RANDOMFOREST`**: Train and test a Random Forest classifier (already fine-tuned with Random Search).
+11. **`ANN`**: Train and test an Artificial Neural Network (ANN) classifier (already fine-tuned with Random Search).
+12. **`METRICS`**: Evaluate and display classification performance metrics (Confusion Matrix, Accuracy, Precision, Recall) for all the models developed.
 
 ## Project Structure
 
@@ -85,7 +85,19 @@ The program includes the following functionalities:
 - **requirements.txt**: List of Python dependencies.
 - **README.md**: This file.
 
-## Requirements
+## Installation
+
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/Breast-Cancer-Prediction.git
+    cd Breast-Cancer-Prediction
+    ```
+2. **Create a virtual environment and activate it:**
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
+3. **Install the required dependencies:**
 
 The code is written in Python and requires the following libraries:
 
@@ -95,11 +107,9 @@ The code is written in Python and requires the following libraries:
 - Matplotlib
 - Seaborn
 
-You can install the required packages using the following command:
-
-```bash
-pip install -r requirements.txt
-```
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 ## Building and Running the Docker Container
 
@@ -126,12 +136,19 @@ docker run -it --rm breast-cancer-prediction
  - --rm: Automatically removes the container once it stops running, keeping your environment clean.
  - breast-cancer-prediction: The name of the Docker image you built.
 
-### 3. Accessing Container Output
+
 Since the project is not a web application and does not expose any ports, the output from the script will be directly visible in the terminal where the container runs. If the script generates output files, they will be saved in the container's file system.
 
-### 4. Stopping the Container
-
 To stop the container while it’s running, you can do so by pressing Ctrl + C in the terminal where the container is running.
+
+## Usage
+
+Run the program using the command-line interface:
+
+```bash
+python main.py
+```
+Follow the prompts to load data, process it, and visualize various aspects related to heart disease indicators.
 
 ## Future Improvements
 
@@ -163,5 +180,3 @@ In the future, I plan to implement the following improvements and features to en
 
 9. **Enhanced Visualization**:
     - Add more advanced visualization options, including 3D plots or interactive dashboards, to provide deeper insights into the data and model outputs.
-
-These improvements aim to make the project more robust, user-friendly, and adaptable to a wider range of use cases.
