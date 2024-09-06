@@ -40,7 +40,7 @@ def create_results_run_folder() -> Path:
     return path
 
 # Dataset directory
-dataset_directory = Path(r'C:\Users\hugot\OneDrive\Ambiente de Trabalho\Projetos_DataScience\Hands_on_Projects\Breast_Cancer_Prediction\dataset\bcdr_f01_features.csv')
+dataset_directory = 'https://raw.githubusercontent.com/HugoTex98/Breast-Cancer-Prediction/main/dataset/bcdr_f01_features.csv' 
 
 user_input = 0
 while True:
