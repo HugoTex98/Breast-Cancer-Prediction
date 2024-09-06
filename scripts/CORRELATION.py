@@ -12,6 +12,8 @@ def Correlation(breast_cancer_dataset: pd.DataFrame, results_folder: Path) -> pd
 
     Parameters:
         breast_cancer_dataset (pd.DataFrame): DataFrame containing breast cancer patient data.
+        results_folder (Path): The path to the newly created folder, or the existing folder 
+                               if it was already present, to store the run results.
 
     Returns:
         pd.DataFrame: A cleaned version of the input DataFrame, with irrelevant columns removed, 

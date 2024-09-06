@@ -7,12 +7,37 @@ from CORRELATION import Correlation
 
 
 def no_overlap_split(X: pd.DataFrame, y: pd.DataFrame) -> Tuple[pd.DataFrame, np.ndarray, pd.DataFrame, np.ndarray]:
+    """
+    Splits a dataset into training and testing sets without overlapping patient IDs.
+
+    This function performs the following steps:
+        1. Extracts unique patient IDs from the input DataFrame `X`.
+        2. Shuffles the patient IDs to ensure randomness.
+        3. Divides the shuffled patient IDs into training and testing sets (80% train, 20% test).
+        4. Filters the input DataFrames `X` and `y` based on the patient IDs for the training and testing sets.
+        5. Returns the training and testing subsets of `X` and `y`.
+
+    Parameters:
+        - X (pd.DataFrame): The feature DataFrame containing a column 'patient_id'.
+        - y (pd.DataFrame): The target DataFrame containing a column 'patient_id'.
+
+    Returns:
+        - Tuple[pd.DataFrame, np.ndarray, pd.DataFrame, np.ndarray]:
+        - X_train (pd.DataFrame): The training feature DataFrame.
+        - y_train (np.ndarray): The training target array.
+        - X_test (pd.DataFrame): The testing feature DataFrame.
+        - y_test (np.ndarray): The testing target array.
+
+    Notes:
+        - The shuffling is done with a fixed random seed (4) for reproducibility.
+        - If there are overlapping patient IDs between the train and test sets, the function will print the number of such overlaps.
+    """
     ids_pacientes = list(set(X['patient_id'])) # get patient_id's
     random.seed(4) # patient_id's shuffled consistently for results
     random.shuffle(ids_pacientes) # shuffle patient_id's
     
     num_pacientes = len(ids_pacientes) 
-    dividir_indexes = int(0.8 * num_pacientes)  # use 80% for train and 20% to test
+    dividir_indexes = int(0.8 * num_pacientes)  # 80% for train and 20% to test
     ids_treino = ids_pacientes[:dividir_indexes]
     ids_teste = ids_pacientes[dividir_indexes:]  
     
@@ -35,6 +60,8 @@ def Splitscale(breast_cancer_dataset: pd.DataFrame,
 
     Parameters:
         breast_cancer_dataset (pd.DataFrame): DataFrame containing breast cancer patient data.
+        results_folder (Path): The path to the newly created folder, or the existing folder 
+                               if it was already present, to store the run results.
 
     Returns:
         X_train (pd.DataFrame): DataFrame containing the features for training, excluding the `classification` column 

@@ -14,6 +14,8 @@ def SvmModel(breast_cancer_dataset: pd.DataFrame,
 
     Parameters:
         breast_cancer_dataset (pd.DataFrame): DataFrame containing breast cancer patient data.
+        results_folder (Path): The path to the newly created folder, or the existing folder 
+                               if it was already present, to store the run results.
 
     Returns:
         Tuple[np.ndarray, np.ndarray, float, SVC]:
@@ -67,6 +69,8 @@ def Svm_to_Metrics(breast_cancer_dataset: pd.DataFrame,
 
     Parameters:
         breast_cancer_dataset (pd.DataFrame): DataFrame containing breast cancer patient data.
+        results_folder (Path): The path to the newly created folder, or the existing folder 
+                               if it was already present, to store the run results.
 
     Returns:
         Tuple[np.ndarray, np.ndarray, float, SVC]:

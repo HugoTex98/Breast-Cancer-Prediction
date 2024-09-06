@@ -17,6 +17,18 @@ from METRICS import Metrics
 
 
 def create_results_run_folder() -> Path:
+    """
+    Creates a folder within the current working directory to store results, named with the current timestamp.
+    
+    The folder is created inside a 'results' directory, and its name is based on the current date and time 
+    in the format 'YYYYMMDD_HHMMSS'. If the folder already exists, a message is printed to indicate this.
+    
+    Returns:
+        Path: The path to the newly created folder, or the existing folder if it was already present.
+    
+    Raises:
+        FileExistsError: If the folder already exists (caught internally and logged).
+    """
     path = Path.cwd() / "results" / datetime.now().strftime(format="%Y%m%d_%H%M%S")
     try:
         path.mkdir(parents=True, exist_ok=False)
