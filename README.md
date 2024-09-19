@@ -158,30 +158,21 @@ Follow the prompts to load data, process it, and visualize various aspects relat
 ## Future Improvements
 
 In the future, I plan to implement the following improvements and features to enhance the functionality and performance of this project:
-
-1. **New branch**: 
-   - Creation of a new branch for new developments.
   
-2. **Store models parameters**
+1. **Store models parameters**
    - Store models parameters in the results.
 
-3. **Expanded Model Selection**: 
+2. **Expanded Model Selection**: 
    - Integrate additional machine learning models, such as Gradient Boosting Machines (GBM) or XGBoost, to compare performance with the current models.
 
-4. **Hyperparameter Optimization**:
-   - Implement Optuna to optimize the performance of the classifiers.
+3. **Hyperparameter Optimization**:
+   - Implement a module to use Optuna to optimize the performance of the classifiers.
 
-5. **Data Augmentation**:
+4. **Data Augmentation**:
    - Apply data augmentation techniques (SMOTE) to increase the dataset and potentially improve model accuracy.
 
-6. **User Interface**:
-   - Develop a simple graphical user interface (GUI) to make the program more user-friendly, allowing users to load data, select models, and view results without needing to interact directly with the command line.
-
-7. **Containerization and Deployment**:
+5. **Containerization and Deployment**:
    - Refine the Docker setup to allow for easy deployment on cloud platforms like AWS or Azure, including CI/CD pipeline integration.
 
-8. **Testing and Validation**:
+6. **Testing and Validation**:
    - Implement unit tests and continuous integration (CI) pipelines to ensure code quality and detect potential issues before deployment (maybe ML Flow for model monitoring).
-
-9. **Enhanced Visualization**:
-    - Add more advanced visualization options, including 3D plots or interactive dashboards, to provide deeper insights into the data and model outputs.
