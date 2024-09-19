@@ -89,6 +89,17 @@ The program implements a command-line interface (CLI) with the following functio
 - **requirements.txt**: List of Python dependencies.
 - **README.md**: This file.
 
+## Requirements
+
+The code is written in Python and requires the following libraries:
+
+- Pandas
+- Requests
+- NumPy
+- Scikit-learn
+- Matplotlib
+- Seaborn
+
 ## Installation
 
 1. **Clone the repository:**
@@ -102,15 +113,6 @@ The program implements a command-line interface (CLI) with the following functio
     source venv/bin/activate  # On Windows use `venv\Scripts\activate`
     ```
 3. **Install the required dependencies:**
-
-The code is written in Python and requires the following libraries:
-
-- Pandas
-- Requests
-- NumPy
-- Scikit-learn
-- Matplotlib
-- Seaborn
 
     ```bash
     pip install -r requirements.txt
