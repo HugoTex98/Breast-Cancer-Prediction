@@ -155,7 +155,7 @@ Run the program using the command-line interface:
 ```bash
 python main.py
 ```
-Follow the prompts to load data, process it, and visualize various aspects related to heart disease indicators.
+Follow the prompts to load data, process it, explore the features, and use Machine Learning models to predict Breast Cancer.
 
 ## Future Improvements
 
@@ -178,3 +178,6 @@ In the future, I plan to implement the following improvements and features to en
 
 6. **Testing and Validation**:
    - Implement unit tests and continuous integration (CI) pipelines to ensure code quality and detect potential issues before deployment (maybe ML Flow for model monitoring).
+  
+7. **AutoML**
+   - Maybe implement some AutoML like PyCaret to speed up modelling.
