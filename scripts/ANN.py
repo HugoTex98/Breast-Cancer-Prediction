@@ -62,6 +62,11 @@ def AnnModel(breast_cancer_dataset: pd.DataFrame,
     # Evaluate model in test dataset
     accuracy = modelo_MLP.score(X_test.values, y_test)
     logging.info('\nAccuracy of MLP model: {:.2f}% \n'.format(accuracy * 100))
+
+    # Save model parameters:
+    with open(f"{results_folder}/ANN_params.txt", "w") as params_file:
+        # `get_params()` return a dict, we need to convert to string
+        params_file.write(str(modelo_MLP.get_params()))
         
     return y_test, y_pred, accuracy, modelo_MLP
     
@@ -102,5 +107,10 @@ def Ann_to_Metrics(breast_cancer_dataset: pd.DataFrame,
     # Evaluate model in test dataset
     accuracy = modelo_MLP.score(X_test.values, y_test)
     logging.info('\nAccuracy of MLP model: {:.2f}% \n'.format(accuracy * 100))
+
+    # Save model parameters:
+    with open(f"{results_folder}/ANN_params.txt", "w") as params_file:
+        # `get_params()` return a dict, we need to convert to string
+        params_file.write(str(modelo_MLP.get_params()))
         
     return y_test, y_pred, accuracy, modelo_MLP

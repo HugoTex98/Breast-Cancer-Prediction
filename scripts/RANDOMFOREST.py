@@ -58,6 +58,11 @@ def RandomForestModel(breast_cancer_dataset: pd.DataFrame,
     # Evaluate model in test dataset
     accuracy = modelo_RF.score(X_test, y_test)
     logging.info('\nAccuracy of Random Forest model: {:.2f}% \n'.format(accuracy * 100))
+
+    # Save model parameters:
+    with open(f"{results_folder}/Random_Forest_params.txt", "w") as params_file:
+        # `get_params()` return a dict, we need to convert to string
+        params_file.write(str(modelo_RF.get_params()))
     
     return y_test, y_pred, accuracy, modelo_RF
     
@@ -96,6 +101,11 @@ def RandomForest_to_Metrics(breast_cancer_dataset: pd.DataFrame,
     # Evaluate model in test dataset
     accuracy = modelo_RF.score(X_test, y_test)
     logging.info('\nAccuracy of Random Forest model: {:.2f}% \n'.format(accuracy * 100))
+
+    # Save model parameters:
+    with open(f"{results_folder}/Random_Forest_params.txt", "w") as params_file:
+        # `get_params()` return a dict, we need to convert to string
+        params_file.write(str(modelo_RF.get_params()))
     
     return y_test, y_pred, accuracy, modelo_RF
     

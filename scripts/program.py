@@ -114,7 +114,7 @@ def breast_cancer_prediction_program(dataset_directory: str):
                 break
 
             elif user_input3 == 14:
-                logging.info("\nDon't want any data processing and visualization! \n")
+                logging.info("\nDon't want any data processing and visualization. Exit the program! \n")
                 sys.exit()
         
         else:

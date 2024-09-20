@@ -58,6 +58,11 @@ def SvmModel(breast_cancer_dataset: pd.DataFrame,
     # Evaluate model in test dataset
     accuracy = modelo_SVM.score(X_test, y_test)
     logging.info('\nAccuracy of SVM model: {:.2f}% \n'.format(accuracy * 100))
+
+    # Save model parameters:
+    with open(f"{results_folder}/SVM_params.txt", "w") as params_file:
+        # `get_params()` return a dict, we need to convert to string
+        params_file.write(str(modelo_SVM.get_params()))
     
     return y_test, y_pred, accuracy, modelo_SVM
 
@@ -90,11 +95,16 @@ def Svm_to_Metrics(breast_cancer_dataset: pd.DataFrame,
     # Fit SVM in train dataset
     modelo_SVM.fit(X_train, y_train)
     
-    # Usar o modelo para fazer previsões no conjunto de teste
+    # Prediction on test dataset
     y_pred = modelo_SVM.predict(X_test)
     
     # Evaluate model in test dataset
     accuracy = modelo_SVM.score(X_test, y_test)
     logging.info('\nAccuracy of SVM model: {:.2f}% \n'.format(accuracy * 100))
+
+    # Save model parameters:
+    with open(f"{results_folder}/SVM_params.txt", "w") as params_file:
+        # `get_params()` return a dict, we need to convert to string
+        params_file.write(str(modelo_SVM.get_params()))
     
     return y_test, y_pred, accuracy, modelo_SVM
