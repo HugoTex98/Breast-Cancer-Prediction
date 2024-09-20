@@ -162,11 +162,12 @@ Follow the prompts to load data, process it, explore the features, and use Machi
 
 In the future, I plan to implement the following improvements and features to enhance the functionality and performance of this project:
   
-1. **Store models parameters**
-   - Store models parameters in the results.
 
-2. **Expanded Model Selection**: 
+1. **Expand Model Selection**: 
    - Integrate additional machine learning models, such as Gradient Boosting Machines (GBM) or XGBoost, to compare performance with the current models.
+
+2. **Model Comparison module**: 
+   - Implement a module inside `Metrics` program to evaluate which model is the best (considering the best metric for the use case).
 
 3. **Hyperparameter Optimization**:
    - Implement a module to use Optuna to optimize the performance of the classifiers.
