@@ -85,6 +85,7 @@ The program implements a command-line interface (CLI) with the following functio
 - **/scripts**: Contains the main script `main.py` that implements the above functionalities.
 - **/data**: Directory to store datasets.
 - **/results**: Directory to save results for each run, such as visualizations and model outputs.
+- **/logs**: Directory to save logs for each run, including prints, error messages and code details.
 - **Dockerfile**: Instructions to containerize the application.
 - **requirements.txt**: List of Python dependencies.
 - **README.md**: This file.
