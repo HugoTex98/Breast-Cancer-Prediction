@@ -1,11 +1,11 @@
 from typing import Tuple
 import pandas as pd
 import numpy as np
-from pathlib import Path
-from SPLITSCALE import Splitscale
-from sklearn.ensemble import RandomForestClassifier
 import numpy as np
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import RandomizedSearchCV
+from __init__ import Splitscale, Path, logging
+
 
 def RandomForestModel(breast_cancer_dataset: pd.DataFrame,
                       results_folder: Path) -> Tuple[np.ndarray, np.ndarray, float, RandomForestClassifier]:
@@ -50,14 +50,14 @@ def RandomForestModel(breast_cancer_dataset: pd.DataFrame,
     y_pred = modelo_RF.predict(X_test)
     
     # First and last 5 predictions of Random Forest model
-    print('\nFirst 5 ground-truths: \n', y_test[:5])
-    print('\nFirst 5 predictions of Random Forest model: \n', y_pred[:5])
-    print('\nLast 5 ground-truths: \n', y_test[-5:])
-    print('\nLast 5 predictions of Random Forest model: \n', y_pred[-5:])
+    logging.info('\nFirst 5 ground-truths: \n', y_test[:5])
+    logging.info('\nFirst 5 predictions of Random Forest model: \n', y_pred[:5])
+    logging.info('\nLast 5 ground-truths: \n', y_test[-5:])
+    logging.info('\nLast 5 predictions of Random Forest model: \n', y_pred[-5:])
     
     # Evaluate model in test dataset
     accuracy = modelo_RF.score(X_test, y_test)
-    print('\nAccuracy of Random Forest model: {:.2f}% \n'.format(accuracy * 100))
+    logging.info('\nAccuracy of Random Forest model: {:.2f}% \n'.format(accuracy * 100))
     
     return y_test, y_pred, accuracy, modelo_RF
     
@@ -95,7 +95,7 @@ def RandomForest_to_Metrics(breast_cancer_dataset: pd.DataFrame,
     
     # Evaluate model in test dataset
     accuracy = modelo_RF.score(X_test, y_test)
-    print('\nAccuracy of Random Forest model: {:.2f}% \n'.format(accuracy * 100))
+    logging.info('\nAccuracy of Random Forest model: {:.2f}% \n'.format(accuracy * 100))
     
     return y_test, y_pred, accuracy, modelo_RF
     

@@ -1,8 +1,7 @@
 import seaborn as sns
 import pandas as pd
 import matplotlib.pyplot as plt
-from pathlib import Path 
-from SORT import Sort
+from __init__ import Sort, Path, logging
 
 
 def Correlation(breast_cancer_dataset: pd.DataFrame, results_folder: Path) -> pd.DataFrame:
@@ -46,6 +45,7 @@ def Correlation(breast_cancer_dataset: pd.DataFrame, results_folder: Path) -> pd
     plt.figure()
     sns.heatmap(correlation_breast_cancer, cmap = "crest", annot = True)
     plt.savefig(Path.joinpath(results_folder, "Correlation_Heatmap.png"))
+    logging.info("Saved Correlation_Heatmap.png!")
     plt.show(block=False)  # Non-blocking call
     
     return cleaned_breast_cancer_dataset

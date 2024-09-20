@@ -1,3 +1,4 @@
+import logging
 import wx
 import pandas as pd
 from pathlib import Path
@@ -48,16 +49,16 @@ def Load() -> pd.DataFrame:
     if dataset_dir.suffix == '.csv':
         # read the dataset choosen previously 
         dataset = pd.read_csv(''+ str(dataset_dir))
-        print (dataset.info())
-        print('\n First 5 records: \n')
-        print (dataset.head(n=5))
-        print('\n Last 5 records: \n')
-        print (dataset.tail(n=5))
+        logging.info(dataset.info())
+        logging.info('\n First 5 records: \n')
+        logging.info (dataset.head(n=5))
+        logging.info('\n Last 5 records: \n')
+        logging.info (dataset.tail(n=5))
         
     elif dataset_dir.suffix != '.csv':
         # if the file has an extension not supported, DataFrame remains empty
         dataset = pd.DataFrame({'Empty' : []})
-        print("File not found...")
+        logging.error("File not found...")
 
     return dataset
     

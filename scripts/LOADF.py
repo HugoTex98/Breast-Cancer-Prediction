@@ -1,3 +1,4 @@
+import logging
 import requests
 import pandas as pd
 
@@ -18,15 +19,15 @@ def LoadDF(repo_dir: str) -> pd.DataFrame:
     response = requests.get(repo_dir)
 
     if response.status_code == 200:
-        print('File founded! \n' )
+        logging.info('File founded! \n' )
         dataset = pd.read_csv(repo_dir)
-        print(dataset.info())
-        print('\n First 5 records: \n')
-        print(dataset.head(n=5))
-        print('\n Last 5 records: \n')
-        print(dataset.tail(n=5))
+        logging.info(dataset.info())
+        logging.info('\n First 5 records: \n')
+        logging.info(dataset.head(n=5))
+        logging.info('\n Last 5 records: \n')
+        logging.info(dataset.tail(n=5))
     else:
         dataset = pd.DataFrame({'Empty' : []})
-        print(f'File not found... Status code: {response.status_code}')
+        logging.error(f'File not found... Status code: {response.status_code}')
     
     return dataset

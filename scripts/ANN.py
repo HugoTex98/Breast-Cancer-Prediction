@@ -1,11 +1,11 @@
 from typing import Tuple
 import pandas as pd
 import numpy as np
-from pathlib import Path
-from SPLITSCALE import Splitscale
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import RandomizedSearchCV
 from scipy.stats import uniform, randint
+from __init__ import Splitscale, Path, logging
+
 
 def AnnModel(breast_cancer_dataset: pd.DataFrame,
              results_folder: Path) -> Tuple[np.ndarray, np.ndarray, float, MLPClassifier]:
@@ -54,14 +54,14 @@ def AnnModel(breast_cancer_dataset: pd.DataFrame,
     y_pred = modelo_MLP.predict(X_test.values)
     
     # First and last 5 predictions of MLP model
-    print('\nFirst 5 ground-truths: \n', y_test[:5])
-    print('\nFirst 5 predictions of MLP model: \n', y_pred[:5])
-    print('\nLast 5 ground-truths: \n', y_test[-5:])
-    print('\nLast 5 predictions of MLP model: \n', y_pred[-5:])
+    logging.info('\nFirst 5 ground-truths: \n', y_test[:5])
+    logging.info('\nFirst 5 predictions of MLP model: \n', y_pred[:5])
+    logging.info('\nLast 5 ground-truths: \n', y_test[-5:])
+    logging.info('\nLast 5 predictions of MLP model: \n', y_pred[-5:])
     
     # Evaluate model in test dataset
     accuracy = modelo_MLP.score(X_test.values, y_test)
-    print('\nAccuracy of MLP model: {:.2f}% \n'.format(accuracy * 100))
+    logging.info('\nAccuracy of MLP model: {:.2f}% \n'.format(accuracy * 100))
         
     return y_test, y_pred, accuracy, modelo_MLP
     
@@ -101,6 +101,6 @@ def Ann_to_Metrics(breast_cancer_dataset: pd.DataFrame,
     
     # Evaluate model in test dataset
     accuracy = modelo_MLP.score(X_test.values, y_test)
-    print('\nAccuracy of MLP model: {:.2f}% \n'.format(accuracy * 100))
+    logging.info('\nAccuracy of MLP model: {:.2f}% \n'.format(accuracy * 100))
         
     return y_test, y_pred, accuracy, modelo_MLP

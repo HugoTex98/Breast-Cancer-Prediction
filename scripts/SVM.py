@@ -1,11 +1,11 @@
 from typing import Tuple
 import pandas as pd
 import numpy as np
-from pathlib import Path
-from SPLITSCALE import Splitscale
 from sklearn.svm import SVC
 from sklearn.model_selection import RandomizedSearchCV
 from scipy.stats import uniform
+from __init__ import Splitscale, Path, logging
+
 
 def SvmModel(breast_cancer_dataset: pd.DataFrame,
              results_folder: Path) -> Tuple[np.ndarray, np.ndarray, float, SVC]:
@@ -50,14 +50,14 @@ def SvmModel(breast_cancer_dataset: pd.DataFrame,
     y_pred = modelo_SVM.predict(X_test)
     
     # First and last 5 predictions of SVM model
-    print('\nFirst 5 ground-truths: \n', y_test[:5])
-    print('\nFirst 5 predictions of SVM model: \n', y_pred[:5])
-    print('\nLast 5 ground-truths: \n', y_test[-5:])
-    print('\nLast 5 predictions of SVM model: \n', y_pred[-5:])
+    logging.info('\nFirst 5 ground-truths: \n', y_test[:5])
+    logging.info('\nFirst 5 predictions of SVM model: \n', y_pred[:5])
+    logging.info('\nLast 5 ground-truths: \n', y_test[-5:])
+    logging.info('\nLast 5 predictions of SVM model: \n', y_pred[-5:])
     
     # Evaluate model in test dataset
     accuracy = modelo_SVM.score(X_test, y_test)
-    print('\nAccuracy of SVM model: {:.2f}% \n'.format(accuracy * 100))
+    logging.info('\nAccuracy of SVM model: {:.2f}% \n'.format(accuracy * 100))
     
     return y_test, y_pred, accuracy, modelo_SVM
 
@@ -95,6 +95,6 @@ def Svm_to_Metrics(breast_cancer_dataset: pd.DataFrame,
     
     # Evaluate model in test dataset
     accuracy = modelo_SVM.score(X_test, y_test)
-    print('\nAccuracy of SVM model: {:.2f}% \n'.format(accuracy * 100))
+    logging.info('\nAccuracy of SVM model: {:.2f}% \n'.format(accuracy * 100))
     
     return y_test, y_pred, accuracy, modelo_SVM

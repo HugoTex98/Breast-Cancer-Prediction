@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from pathlib import Path
+from __init__ import logging, Path
 
 
 def Describe(breast_cancer_dataset: pd.DataFrame, results_folder: Path):
@@ -20,13 +20,13 @@ def Describe(breast_cancer_dataset: pd.DataFrame, results_folder: Path):
     dados_numericos = breast_cancer_dataset.select_dtypes(include=[np.number])
     
     # stats of numerical data
-    print(dados_numericos.describe())
+    logging.info(dados_numericos.describe())
     
     # count patients with benign or malignant cancer
     pacientes = breast_cancer_dataset['classification'].value_counts()
     n_doentes_benignos = pacientes[0] 
     n_doentes_malignos = pacientes[1]
-    print(f'\nThere are {n_doentes_benignos} patients with benign lesions and {n_doentes_malignos} patients with malignant lesions\n')
+    logging.info(f'\nThere are {n_doentes_benignos} patients with benign lesions and {n_doentes_malignos} patients with malignant lesions\n')
     
     # barplot visualization
     plt.figure()
@@ -35,5 +35,6 @@ def Describe(breast_cancer_dataset: pd.DataFrame, results_folder: Path):
         plt.text(i, v, str(v), color='black', fontweight='bold', ha='center', va='bottom')
     plt.title('Bar plot of benign and malignant patients')
     plt.savefig(Path.joinpath(results_folder, "LABEL_BARPLOT.png"))
+    logging.info("Saved LABEL_BARPLOT.png!")
     plt.show(block=False)
     

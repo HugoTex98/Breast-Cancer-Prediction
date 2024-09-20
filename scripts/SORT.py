@@ -1,4 +1,5 @@
 import pandas as pd
+from __init__ import logging
 
 
 def Sort(breast_cancer_dataset: pd.DataFrame) -> pd.DataFrame:
@@ -32,7 +33,7 @@ def Sort(breast_cancer_dataset: pd.DataFrame) -> pd.DataFrame:
     # cleaned_breast_cancer_dataset['classification'] = cleaned_breast_cancer_dataset['classification'].replace([' Benign ', ' Malign '], [0, 1], inplace=True)
     cleaned_breast_cancer_dataset['classification'] = cleaned_breast_cancer_dataset['classification'].apply(lambda x: 0 if x == ' Benign ' else 1)
     # Describe of "patient_id" and "classification" columns
-    print('Columns "patient_id" and "classification" decription')
-    print(cleaned_breast_cancer_dataset[['patient_id', 'classification']].describe())
+    logging.info('Columns "patient_id" and "classification" decription')
+    logging.info(cleaned_breast_cancer_dataset[['patient_id', 'classification']].describe())
     
     return cleaned_breast_cancer_dataset

@@ -1,9 +1,8 @@
 from typing import Tuple
-from pathlib import Path
 import random
 import numpy as np
 import pandas as pd
-from CORRELATION import Correlation
+from __init__ import Correlation, Path, logging
 
 
 def no_overlap_split(X: pd.DataFrame, y: pd.DataFrame) -> Tuple[pd.DataFrame, np.ndarray, pd.DataFrame, np.ndarray]:
@@ -42,7 +41,7 @@ def no_overlap_split(X: pd.DataFrame, y: pd.DataFrame) -> Tuple[pd.DataFrame, np
     ids_teste = ids_pacientes[dividir_indexes:]  
     
     overlap_ids = list(np.intersect1d(ids_treino,ids_teste))
-    print(f'\nThere are {len(overlap_ids)} Patient IDs overlapped in train and test datasets \n')
+    logging.info(f'\nThere are {len(overlap_ids)} Patient IDs overlapped in train and test datasets \n')
     
     X_train = X[X['patient_id'].isin(ids_treino)] 
     y_train = y[y['patient_id'].isin(ids_treino)] 

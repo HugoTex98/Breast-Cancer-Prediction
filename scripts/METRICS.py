@@ -1,12 +1,11 @@
 from typing import Tuple
-from pathlib import Path
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from SVM import Svm_to_Metrics
-from RANDOMFOREST import RandomForest_to_Metrics
-from ANN import Ann_to_Metrics
-from sklearn.metrics import confusion_matrix, precision_score, recall_score, ConfusionMatrixDisplay, roc_curve, roc_auc_score
+from sklearn.metrics import (confusion_matrix, precision_score, recall_score, 
+                             ConfusionMatrixDisplay, roc_curve, roc_auc_score)
+from __init__ import (Svm_to_Metrics, RandomForest_to_Metrics, Ann_to_Metrics,
+                      Path, logging)
 
 
 def Metrics(breast_cancer_dataset: pd.DataFrame,
@@ -50,6 +49,7 @@ def Metrics(breast_cancer_dataset: pd.DataFrame,
         plt.xlabel('Predicted Label')
         plt.ylabel('True Label')
         plt.savefig(Path.joinpath(results_folder, f"ConfusionMatrix_{n_modelo}.png"))
+        logging.info(f"Saved ConfusionMatrix_{n_modelo}.png!")
         plt.show(block=False)  # Non-blocking call
         
         precision = precision_score(y_test, prev_modelo)
@@ -67,6 +67,7 @@ def Metrics(breast_cancer_dataset: pd.DataFrame,
             plt.text(i, v, str(round(v, 3)), color='black', fontweight='bold', ha='center', va='bottom')
         plt.title(f'Accuracy, Precision, Recall for {n_modelo}')
         plt.savefig(Path.joinpath(results_folder, f"ACC_PREC_REC_{n_modelo}.png"))
+        logging.info(f"Saved ACC_PREC_REC_{n_modelo}.png!")
         plt.show(block=False)  # Non-blocking call
         
         # Get AUC 
@@ -82,6 +83,7 @@ def Metrics(breast_cancer_dataset: pd.DataFrame,
         plt.ylabel('True Positive Rate')
         plt.title(f'ROC for {n_modelo} (AUC = {round(auc,4)})')
         plt.savefig(Path.joinpath(results_folder, f"AUCROC_{n_modelo}.png"))
+        logging.info(f"Saved AUCROC_{n_modelo}.png!")
         plt.show(block=False)  # Non-blocking call
         
     return y_pred_SVM, y_pred_RF, y_pred_ANN, y_test
