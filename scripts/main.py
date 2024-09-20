@@ -2,7 +2,7 @@ from __init__ import (dataset_directory, datetime, Path, logging)
 from program import breast_cancer_prediction_program
 
 # Configure logging
-logs_dir = Path.cwd() / 'logs' # Create logs directory if it doesn't exist
+logs_dir = Path.cwd() / 'logs'                                                                               # Create logs directory if it doesn't exist
 logs_dir.mkdir(parents=True, exist_ok=True)
 
 logging.basicConfig(
